@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TinyTodo</title>
+</head>
+<body>
+    <h1>TinyTodo</h1>
+    <ul>
+        {% for task in tasks %}
+            <li>
+                {{ task.description }} - {{ task.status }}
+                <a href="{{ url_for('complete', task_id=task.id) }}">Đã hoàn thành</a>
+                <a href="{{ url_for('delete', task_id=task.id) }}">Xóa</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <form action="/add" method="post">
+        <label for="description">Mô tả:</label>
+        <input type="text" id="description" name="description" required>
+        <button type="submit">Thêm công việc</button>
+    </form>
+</body>
+</html>
