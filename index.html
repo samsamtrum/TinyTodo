@@ -11,15 +11,15 @@
         {% for task in tasks %}
             <li>
                 {{ task.description }} - {{ task.status }}
-                <a href="{{ url_for('complete', task_id=task.id) }}">Đã hoàn thành</a>
-                <a href="{{ url_for('delete', task_id=task.id) }}">Xóa</a>
+                <a href="{{ url_for('complete', task_id=task.id) }}">Mark as Completed</a>
+                <a href="{{ url_for('delete', task_id=task.id) }}">Delete</a>
             </li>
         {% endfor %}
     </ul>
     <form action="/add" method="post">
-        <label for="description">Mô tả:</label>
+        <label for="description">Description:</label>
         <input type="text" id="description" name="description" required>
-        <button type="submit">Thêm công việc</button>
+        <button type="submit">Add Task</button>
     </form>
 </body>
 </html>
